@@ -1,0 +1,45 @@
+
+{
+  "title": "Echo VTT Dashboard Schema",
+  "type": "object",
+  "properties": {
+    "map_display": {
+      "description": "The current game map, showing terrain and fog of war.",
+      "type": "object",
+      "properties": {
+        "width": {"type": "integer"},
+        "height": {"type": "integer"},
+        "grid": {"type": "array", "items": {"type": "string"}},
+        "fog_of_war": {"type": "array", "items": {"type": "boolean"}}
+      },
+      "required": ["width", "height", "grid", "fog_of_war"]
+    },
+    "entity_list": {
+      "description": "List of all entities (Players and NPCs) currently in the game.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "hp": {"type": "integer"},
+          "position": {"type": "array", "items": {"type": "integer"}}
+        },
+        "required": ["name", "hp", "position"]
+      }
+    },
+    "event_log": {
+      "description": "Chronological feed of all system events, actions, and narration.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": {"type": "string"},
+          "source": {"type": "string"},
+          "message": {"type": "string"}
+        },
+        "required": ["timestamp", "source", "message"]
+      }
+    }
+  },
+  "required": ["map_display", "entity_list", "event_log"]
+}
