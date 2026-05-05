@@ -1,0 +1,105 @@
+.entity-list-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.entity-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 20px;
+}
+
+.entity-card {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  border-radius: 12px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s, border-color 0.2s;
+  cursor: default;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.entity-card:hover {
+  transform: translateX(8px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-glow);
+}
+
+.entity-avatar {
+  margin-right: 16px;
+}
+
+.avatar-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #111;
+  border: 2px solid var(--border-color);
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5);
+  transition: border-color 0.3s;
+}
+
+.entity-card:hover .avatar-circle {
+  border-color: var(--text-accent);
+}
+
+.entity-info {
+  flex: 1;
+}
+
+.entity-name {
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.hp-bar-container {
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 6px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.hp-bar-fill {
+  height: 100%;
+  transition: width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.5s;
+}
+
+.hp-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: right;
+  letter-spacing: 0.5px;
+}
+
+.damage-flash {
+  animation: bg-flash 0.5s;
+}
+
+@keyframes bg-flash {
+  0% { background: rgba(244, 67, 54, 0.4); border-color: rgba(244, 67, 54, 1); transform: translateX(-10px); }
+  50% { transform: translateX(5px); }
+  100% { background: rgba(0, 0, 0, 0.4); border-color: rgba(255, 255, 255, 0.1); transform: translateX(0); }
+}

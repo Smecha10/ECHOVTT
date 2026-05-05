@@ -1,0 +1,76 @@
+.app-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
+  padding: 24px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  pointer-events: none; /* Let clicks pass through to map by default */
+}
+
+/* Re-enable pointer events for actual UI panels */
+.left-sidebar, .right-sidebar {
+  pointer-events: auto;
+  z-index: 10;
+  height: 100%;
+  max-height: calc(100vh - 48px);
+}
+
+.left-sidebar {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.right-sidebar {
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.95rem;
+  color: var(--text-accent);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px 12px 0 0;
+}
+
+.logo-area {
+  padding: 24px 16px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 12px 12px 0 0;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #fff, #64b5f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 3px;
+  filter: drop-shadow(0 0 8px rgba(100, 181, 246, 0.3));
+}
+
+/* Map takes over the background */
+.main-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: auto;
+}
